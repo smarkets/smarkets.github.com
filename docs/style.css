@@ -1,0 +1,301 @@
+body, td, a[rel="bookmark"] {
+  font-family: Arial;
+  font-weight: normal;
+  font-size: 14px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+h1 {
+  font-size: 1em;
+}
+h1 img {
+  margin: -1em 0 0 0.5em;
+}
+h1 span {
+  display: block;
+  position: absolute;
+  font-size: 1em;
+  margin: -0.5em 0 0 0;
+  padding: 0.5em 1em 0.5em 1em;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-left-width: 0;
+}
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+h1 a:hover span {
+  text-decoration: underline;
+}
+h2 {
+  border-top: 2px solid #638294;
+  font-size: 1.5em;
+  margin: 1.5em 0 0.5em 0;
+  padding: 0.2em 0.4em;
+  background: #7CA2B9;
+  color: white;
+}
+h2:first-child {
+  margin-top: 0.5em;
+}
+
+ol.steps li, ul.downloads li {
+  margin-bottom: 0.5em;
+}
+#toc {
+}
+#toc ul {
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 3.5em 0 0 1em;
+}
+#toc ul li {
+  padding: 0;
+  margin: 0.3em 0 0.5em 0;
+}
+#toc ul ul {
+  list-style: disc;
+  padding: 0 0 0 1.5em;
+  margin: 0.5em 0;
+}
+#toc ul.defs {
+  list-style: none;
+  padding: 0;
+}
+#toc .type {
+  font-size: 0.9em;
+}
+#toc ul ul li {
+  padding: 0;
+  margin: 0;
+}
+#content {
+  padding: 0 2em 0 0;
+}
+.def ul li {
+  margin: 0.3em 0;
+}
+@media screen {
+  body {
+    margin: 0 0 0 0;
+  }
+  body>div#toc {
+    position: fixed;
+    height: 100%;
+    width: 15em;
+    overflow: auto;
+  }
+  body>div#content {
+    z-index: 100;
+    margin: 0 0 0 16em;
+    height: 100%;
+    overflow: auto;
+  }
+}
+p {
+  line-height: 1.3em;
+}
+.def {
+  border-top: 1px solid #ccc;
+}
+h3 {
+  font-size: 1.25em;
+  margin: 0.5em 0 0.5em 0;
+  padding: 0 0 0 0;
+}
+h3 .name {
+  font-weight: bold;
+  font-family: Consolas, "Droid Sans Mono", Monaco, Courier, monospace;
+  font-size: 1em;
+}
+h3 span {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+.name,
+.type,
+.type a,
+.type span,
+.seq,
+.encoded,
+.direction,
+.option,
+.field,
+code,
+pre {
+  font-family: Consolas, "Droid Sans Mono", Monaco, Courier, monospace;
+}
+code.block {
+  display: block;
+  border: 1px solid #ddd;
+  background: #F8F8F8;
+  font-size: 0.9em;
+  padding: 0.5em 0.7em;
+  margin: 0.5em 0;
+}
+code pre {
+  padding:0;
+  margin:0;
+}
+.field, .type {
+  background: #FDFCDC;
+}
+#toc .type {
+  background: transparent;
+}
+.seq {
+  background: #FCF6CF;
+  padding: 0 0.1em;
+  margin: -1px;
+  border: 1px solid #DEB887;
+}
+.seq:before {
+  content: "#";
+}
+
+.default {
+  font-style: italic;
+}
+.optional {
+  font-style: italic;
+  color: #444;
+}
+
+table.passing {
+  margin: 1em auto;
+}
+table.passing th.server,
+table.passing th.client {
+  font-weight: bold;
+  background: #ddd;
+}
+table.passing th {
+  font-weight: normal;
+  background: #eee;
+}
+table.passing td {
+  text-align: center;
+}
+table.passing tr {
+  background: white;
+}
+table.passing tr.odd {
+  background: #eee;
+}
+.seq.changed {
+  background: #CAFF70;
+  border: 1px solid #A2CD5A;
+}
+.seq.incorrect {
+  background: #CD0000;
+  border: 1px solid #8B0000;
+  color: white;
+}
+.encoded,
+.direction {
+  font-size: 0.8em;
+}
+.direction {
+  font-weight: bold;
+  border-left: 1px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #ccc;
+}
+.left {
+  text-align: left !important;
+}
+.right {
+  text-align: right !important;
+}
+table.length-header {
+  text-align: center;
+  border-collapse: collapse;
+  color: black;
+  margin: 1em auto;
+}
+table.length-header th, table.length-header td {
+  border: 1px #aaa solid;
+  padding: 0.2em;
+}
+table.length-header th {
+  background: #f2f2f2;
+  text-align: center;
+}
+td.bit, th.bit {
+  font-weight: bold;
+  width: 15px;
+}
+th.bit8 {
+  width: 120px;
+}
+td.byte, th.byte {
+  border-right: 1px #333 solid;
+}
+th.bit tt, td.bit {
+  font-size: 77%;
+  line-height: 1;
+}
+td.continuation {
+  font-weight: bold;
+  background-color: #fbb;
+}
+tt {
+  font-family: monospace, "Courier New";
+}
+table.frame {
+  border-spacing: 2px;
+  margin: 1em auto;
+  text-align: center;
+  font-family: monospace, "Courier New";
+  border-collapse: collapse;
+  line-height: 19px;
+}
+table.frame tbody {
+  vertical-align: middle;
+}
+table.frame td {
+  border: 1px #333 solid;
+  padding: 5px;
+}
+table.frame td.first {
+  border-left: hidden;
+}
+table.frame td.last {
+  border-right: hidden;
+}
+table.frame td.title {
+  border: 0;
+}
+
+table.depth {
+  text-align: center;
+  margin: 0 auto 1em auto;
+}
+table.depth td {
+  padding: 0.2em 0.5em;
+}
+table.depth .buy {
+  background: #E8F3F8;  
+}
+table.depth .sell {
+  background: #FDEAF4;  
+}
+table.depth ul {
+  margin: 0;
+  padding: 0;
+}
+table.depth .event {
+  text-align: left;
+  padding: 0.4em 0 0.3em 0;
+}
+table.depth code {
+  font-size: 0.9em;
+}
+table.depth pre {
+  text-align: left;
+}

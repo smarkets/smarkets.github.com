@@ -1,0 +1,4053 @@
+<html lang="en">
+  <head>
+    <title>Documentation - Smarkets Streaming API</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/ico" href="https://d2ddi39c2rqcmy.cloudfront.net/img/favicon.602c606e.ico" /> 
+    <link rel="apple-touch-icon" type="image/png" href="https://diy1dqjwmz5rw.cloudfront.net/img/apple-touch-icon.b3237f5b.png" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+
+    <div id="toc">
+      <h1><a href="http://smarkets.github.com/"><img src="logo.gif" class="logo" /></a>
+          <a href=""><span>Streaming API Documentation</span></a></h1>
+      <ul>
+        <li><strong>0.1-alpha</strong></li>
+        <li><a href="">Introduction</a></li>
+        <li><a href="#encode">Encoding Payloads</a></li>
+        <li><a href="#framing">Framing</a></li>
+        <li>
+          <div style="margin-bottom:0.5em;"><a href="#defs">Type Definitions</a></div>
+          <ul>
+            
+            <li><a href="#seto/contract">contract</a></li>
+            
+            <li><a href="#seto/contract-info">contract-info</a></li>
+            
+            <li><a href="#seto/contract-quote">contract-quote</a></li>
+            
+            <li><a href="#seto/contract-quotes">contract-quotes</a></li>
+            
+            <li><a href="#seto/contract-type">contract-type</a></li>
+            
+            <li><a href="#seto/date">date</a></li>
+            
+            <li><a href="#seto/entity">entity</a></li>
+            
+            <li><a href="#seto/entity-relationship">entity-relationship</a></li>
+            
+            <li><a href="#seto/entity-relationship-type">entity-relationship-type</a></li>
+            
+            <li><a href="#seto/event">event</a></li>
+            
+            <li><a href="#seto/event-category">event-category</a></li>
+            
+            <li><a href="#seto/event-info">event-info</a></li>
+            
+            <li><a href="#seto/event-type">event-type</a></li>
+            
+            <li><a href="#seto/events">events</a></li>
+            
+            <li><a href="#seto/events-request">events-request</a></li>
+            
+            <li><a href="#seto/events-request-type">events-request-type</a></li>
+            
+            <li><a href="#seto/execution">execution</a></li>
+            
+            <li><a href="#seto/http-found">http-found</a></li>
+            
+            <li><a href="#seto/id-invalid">id-invalid</a></li>
+            
+            <li><a href="#seto/login">login</a></li>
+            
+            <li><a href="#seto/market">market</a></li>
+            
+            <li><a href="#seto/market-info">market-info</a></li>
+            
+            <li><a href="#seto/market-quotes">market-quotes</a></li>
+            
+            <li><a href="#seto/market-quotes-request">market-quotes-request</a></li>
+            
+            <li><a href="#seto/market-subscription">market-subscription</a></li>
+            
+            <li><a href="#seto/market-unsubscription">market-unsubscription</a></li>
+            
+            <li><a href="#seto/microseconds">microseconds</a></li>
+            
+            <li><a href="#seto/order">order</a></li>
+            
+            <li><a href="#seto/order-accepted">order-accepted</a></li>
+            
+            <li><a href="#seto/order-cancel">order-cancel</a></li>
+            
+            <li><a href="#seto/order-cancelled">order-cancelled</a></li>
+            
+            <li><a href="#seto/order-cancelled-reason">order-cancelled-reason</a></li>
+            
+            <li><a href="#seto/order-create">order-create</a></li>
+            
+            <li><a href="#seto/order-create-type">order-create-type</a></li>
+            
+            <li><a href="#seto/order-executed">order-executed</a></li>
+            
+            <li><a href="#seto/order-invalid">order-invalid</a></li>
+            
+            <li><a href="#seto/order-invalid-reason">order-invalid-reason</a></li>
+            
+            <li><a href="#seto/order-rejected">order-rejected</a></li>
+            
+            <li><a href="#seto/order-rejected-reason">order-rejected-reason</a></li>
+            
+            <li><a href="#seto/payload">payload</a></li>
+            
+            <li><a href="#seto/payload-type">payload-type</a></li>
+            
+            <li><a href="#seto/price-type">price-type</a></li>
+            
+            <li><a href="#seto/quantity-type">quantity-type</a></li>
+            
+            <li><a href="#seto/quote">quote</a></li>
+            
+            <li><a href="#seto/side">side</a></li>
+            
+            <li><a href="#seto/slug">slug</a></li>
+            
+            <li><a href="#seto/sport-by-date">sport-by-date</a></li>
+            
+            <li><a href="#seto/sport-by-date-type">sport-by-date-type</a></li>
+            
+            <li><a href="#seto/time">time</a></li>
+            
+            <li><a href="#seto/url">url</a></li>
+            
+            <li><a href="#seto/uuid-128">uuid-128</a></li>
+            
+          </ul>
+          <a href="#eto">eto</a>
+          <ul>
+            
+            <li><a href="#eto/login">login</a></li>
+            
+            <li><a href="#eto/login-response">login-response</a></li>
+            
+            <li><a href="#eto/logout">logout</a></li>
+            
+            <li><a href="#eto/logout-reason">logout-reason</a></li>
+            
+            <li><a href="#eto/payload">payload</a></li>
+            
+            <li><a href="#eto/payload-type">payload-type</a></li>
+            
+            <li><a href="#eto/replay">replay</a></li>
+            
+            <li><a href="#eto/seq">seq</a></li>
+            
+            <li><a href="#eto/session">session</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <h2 class="first">Introduction</h2>
+      <!--p>
+      </p-->
+      <p>
+      To work with the Smarkets Streaming API you will need to:
+      <ol class="steps">
+        <li>
+        Create a persistent TCP connection to <code>api-dev.corp.smarkets.com:3701</code>
+        </li>
+        <li>
+        <a href="#encode">Encode</a>, <a href="#framing">Frame</a>, and send a <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#seto/login" class="type">login</a> and its <a href="#eto/payload" class="type">eto/payload</a> with <a href="#eto/seq">seq</a> <span class="seq">1</span>
+<code class="block"><pre>seto/payload{
+  type = login,
+  login = seto/login{
+    username = "..@...",
+    password = "*********"
+  }
+  eto-payload = eto/payload{
+    seq = 1,
+    type = login
+  }
+}</pre></code>
+        </li>
+        <li>
+        Receive a <a href="#seto/payload" class="type">seto/payload</a> back from Smarkets with an <a href="#eto/payload" class="type">eto/payload</a> with type <a href="#eto/login-response" class="type">login-response</a> and incoming <a href="#eto/seq" class="type">seq</a> <span class="seq">1</span>. You have now been allocated a unique <a href="#eto/session" class="type">session</a> that can be <a href="#eto/login" class="type">resumed</a> if you are ever disconnected.
+<code class="block"><pre>seto/payload{
+  type = eto,
+  eto-payload = eto/payload{
+    seq = 1,
+    type = login-response,
+    login-response = eto/login-response{
+      session = "......"
+    }
+  }
+}</pre></code>
+        </li>
+        <li>
+        Send more <a href="#seto/payload" class="type">seto/payloads</a> with an incrementing <em>outgoing</em> <a href="#eto/seq">seq</a> in their <a href="#eto/payload" class="type">eto/payload</a>.
+        </li>
+        <li>
+        Receive more <a href="#seto/payload" class="type">seto/payloads</a> with an incrementing <em>incoming</em> <a href="#eto/seq">seq</a> in their <a href="#eto/payload" class="type">eto/payload</a>.
+        </li>
+      </ol>
+      </p>
+
+      <h2 id="encode">Encoding Payloads</h2>
+      <p>
+      All <a href="#payload">payloads</a> are encoded into bytes compatible with <a href="http://code.google.com/p/protobuf/">Protocol Buffers</a> before being <a href="#framing">framed</a> and sent. How you do this will depend on the language you're using to communicate with Smarkets' servers. Go to the <a href="http://smarkets.github.com/">smarkets.github.com</a> to find the .proto or .piqi files, or use one of the available SDKs that will automatically do this for you.
+      </p>
+      
+      <h2 id="framing">Framing</h2>
+      <p>
+      Each payload is prefixed with a ULEB128 (unsigned little-endian
+      base 128) length header. Each byte has continuation bit (marked
+      in red below) which is the most significant bit. Every byte
+      except the final, most significant byte has the continuation bit
+      set. The Python and Erlang SDKs do this for you. Here's an example
+      for reference purposes where the 28-bit integer 268435202 is represented 
+      by 32 bits like so:
+      </p>
+
+      <table class="length-header">
+        <caption>ULEB128 length header</caption>
+        <tbody>
+          <tr>
+            <th class="bit"><tt>0</tt></th>
+            <th class="bit"><tt>1</tt></th>
+            <th class="bit"><tt>2</tt></th>
+            <th class="bit"><tt>3</tt></th>
+            <th class="bit"><tt>4</tt></th>
+            <th class="bit"><tt>5</tt></th>
+            <th class="bit"><tt>6</tt></th>
+            <th class="bit byte"><tt>7</tt></th>
+            <th class="bit"><tt>8</tt></th>
+            <th class="bit"><tt>9</tt></th>
+            <th class="bit"><tt>10</tt></th>
+            <th class="bit"><tt>11</tt></th>
+            <th class="bit"><tt>12</tt></th>
+            <th class="bit"><tt>13</tt></th>
+            <th class="bit"><tt>14</tt></th>
+            <th class="bit byte"><tt>15</tt></th>
+            <th class="bit"><tt>16</tt></th>
+            <th class="bit"><tt>17</tt></th>
+            <th class="bit"><tt>18</tt></th>
+            <th class="bit"><tt>19</tt></th>
+            <th class="bit"><tt>20</tt></th>
+            <th class="bit"><tt>21</tt></th>
+            <th class="bit"><tt>22</tt></th>
+            <th class="bit byte"><tt>23</tt></th>
+            <th class="bit"><tt>24</tt></th>
+            <th class="bit"><tt>25</tt></th>
+            <th class="bit"><tt>26</tt></th>
+            <th class="bit"><tt>27</tt></th>
+            <th class="bit"><tt>28</tt></th>
+            <th class="bit"><tt>29</tt></th>
+            <th class="bit"><tt>30</tt></th>
+            <th class="bit"><tt>31</tt></th>
+          </tr>
+          <tr>
+            <td class="continuation bit">1</td>
+            <td class="bit">0</td>
+            <td class="bit">0</td>
+            <td class="bit">0</td>
+            <td class="bit">0</td>
+            <td class="bit">0</td>
+            <td class="bit">1</td>
+            <td class="bit byte">0</td>
+            <td class="continuation bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit byte">0</td>
+            <td class="continuation bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit byte">1</td>
+            <td class="continuation bit">0</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+            <td class="bit">1</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+      Frames (including length header and message bytes) must be a
+      minimum of 4 bytes in length. This only affects messages which
+      are themselves 1 or 2 bytes in length. In those cases, 0 padding
+      should be added until the total frame length is 4
+      bytes. Otherwise, no padding should be added.
+      </p>
+
+      <table class="frame">
+        <tbody>
+          <tr><td class="title" colspan="5"><i>increasing sequence numbers</i>  →</td></tr>
+          <tr>
+            <td class="first"><tt>...</tt></td>
+            <td><tt>Length (uleb128)</tt></td>
+            <td><tt>Message (<i>length</i> bytes)</tt></td>
+            <td><tt><i>Padding (optional)</i></tt></td>
+            <td class="last"><tt>...</tt></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="defs">Type Definitions</h2>
+      
+      <div id="seto">
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/contract">
+          <span class="name">seto/contract</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<a href="#seto/uuid-128" class="type">seto/uuid-128</a>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/contract-info">
+          <span class="name">seto/contract-info</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">contract</span>
+          <span>(<a href="#seto/contract" class="type">seto/contract</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/contract-type" class="type">seto/contract-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">slug</span>
+          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">name</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">entities</span>
+          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">shortname</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/contract-quote">
+          <span class="name">seto/contract-quote</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">contract</span>
+          <span>(<a href="#seto/contract" class="type">seto/contract</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">side</span>
+          <span>(<a href="#seto/side" class="type">seto/side</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quotes</span>
+          <span>(<a href="#seto/quote" class="type">seto/quote</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/contract-quotes">
+          <span class="name">seto/contract-quotes</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">contract</span>
+          <span>(<a href="#seto/contract" class="type">seto/contract</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">buy-quotes</span>
+          <span>(<a href="#seto/quote" class="type">seto/quote</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">sell-quotes</span>
+          <span>(<a href="#seto/quote" class="type">seto/quote</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">executions</span>
+          <span>(<a href="#seto/execution" class="type">seto/execution</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">last-execution</span>
+          <span>(<a href="#seto/execution" class="type">seto/execution</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Represents <em>all</em> of the available visable depth of <a href="#seto/quote" class="type">quotes</a> available for a single <a href="#seto/contract" class="type">contract</a> on both the buy and sell sides within <a href="#seto/market-quotes" class="type">market-quotes</a> being sent to a <a href="#eto/session" class="type">session</a>.
+</p>
+<p>
+It can also be sent in a <a href="#seto/payload" class="type">payload</a> itself <em>without</em> being wrapped in <a href="#seto/market-quotes" class="type">market-quotes</a>. This represents <em>updates</em> in the market where <em>only the changed <a href="#seto/quote" class="type">quotes</a> will be sent</em>. This is done when an order is accepted, executed, or cancelled like so (using the Smarkets.com depth view as an example UI):
+</p>
+<table class="depth">
+  <thead>
+    <th colspan="5">For</th>
+    <th colspan="5">Against</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="buy"><span class="price">55%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">54%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">53%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">52%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">51%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">49%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">48%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">47%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">46%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">45%</span><br /><span class="qty">100000</span></td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <ul>
+          <li class="event">Contract updated with a new buy price at 50%</li>
+        </ul>
+<code><pre>
+contract_quotes{
+  contract = ...,
+  buy = [
+    quote{
+      price = 5000,
+      quantity = 200000
+    }
+  ]
+}
+</pre></code>
+        <ul>
+          <li class="event">Push worse available quotes to the side to fit in 50%
+          <br />
+          Note that the liquidity is displayed on the opposite side, meaning "available for you to sell - matching the available buy".
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>insert</td>
+      <td>&gt;</td>
+      <td>&gt;</td>
+      <td>&gt;</td>
+      <td>&gt;</td>
+    </tr>
+    <tr>
+      <td class="buy"><span class="price">55%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">54%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">53%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">52%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">51%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">50%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">49%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">48%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">47%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">46%</span><br /><span class="qty">100000</span></td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <ul>
+          <li class="event">A sell order comes in at 50% that matches <strong>all</strong> of the available 50% quantity with some left over.</li>
+        </ul>
+<code><pre>
+contract_quotes{
+  contract = ...,
+  buy = [
+    quote{
+      price = 4500,
+      quantity = 400000
+    }
+  ],
+  sell = [
+    quote{
+      price = 5000,
+      quantity = 300000
+    }
+  ],
+  executions = [
+    execution{
+      price = 5000,
+      quantity = 100000
+    }
+  ]
+}
+</pre></code>
+        <ul>
+        <li class="event">Get rid of 50% available for a seller to take due to receiving 1 worse price from outside the depth size.</li>
+        <li class="event">Move prices over to fill in where 50% used to live and add the 45% we were just told.</li>
+        <li class="event">
+          Push over the worse sell quotes to the left and fit in the 50% available for someone to buy.
+          <br />
+          Note that the available quantity at 45% is different to what we previously pushed off the end,<br />
+          this is because it fell outside of the available depth that Smarkets provides, and has updated since it fell off the end.
+          </li>
+
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>insert</td>
+      <td>remove &lt;</td>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>insert</td>
+    </tr>
+    <tr>
+      <td class="buy"><span class="price">54%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">53%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">52%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">51%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">50%</span><br /><span class="qty">300000</span></td>
+      <td class="sell"><span class="price">49%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">48%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">47%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">46%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">45%</span><br /><span class="qty">400000</span></td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <ul>
+          <li class="event">A buy order at 51% comes in that takes a price improvement causing all the 50% to get matched along with a portion of the available 51% quantity.</li>
+          <li class="event">There is no more liquidity worse than 54% on the buy side (sells available to be taken)</li>
+        </ul>
+<code><pre>
+contract_quotes{
+  contract = ...,
+  sell = [
+    quote{
+      price = 5100,
+      quantity = 20000
+    }
+  ],
+  executions = [
+    execution{
+      price = 5000,
+      quantity = 300000
+    },
+    execution{
+      price = 5100,
+      quantity = 280000
+    }
+  ]
+}
+</pre></code>
+        <ul>
+          <li class="event">Remove 50% due to execution and an extra price coming in from outside the depth size of 5.</li>
+          <li class="event">Update 51% to quantity 20000</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&gt;</td>
+      <td>&gt;</td>
+      <td>&gt;</td>
+      <td>&gt; remove</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td class="buy">-</td>
+      <td class="buy"><span class="price">54%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">53%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">52%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">51%</span><br /><span class="qty">20000</span></td>
+      <td class="sell"><span class="price">49%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">48%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">47%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">46%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">45%</span><br /><span class="qty">400000</span></td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <ul>
+          <li class="event">All 48% is cancelled and more comes in from outside the depth limit of 5.</li>
+        </ul>
+<code><pre>
+contract_quotes{
+  contract = ...,
+  sell = [
+    quote{
+      price = 4800,
+      quantity = 0
+    },
+    quote{
+      price = 4000,
+      quantity = 30000
+    }
+  ]
+}
+</pre></code>
+        <ul>
+          <li class="event">Remove 48% due to quantity of zero and an extra price coming in from outside the depth size of 5.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>removed &lt;</td>
+      <td>&lt;</td>
+      <td>&lt;</td>
+      <td>insert</td>
+    </tr>
+    <tr>
+      <td class="buy">-</td>
+      <td class="buy"><span class="price">54%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">53%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">52%</span><br /><span class="qty">100000</span></td>
+      <td class="buy"><span class="price">51%</span><br /><span class="qty">20000</span></td>
+      <td class="sell"><span class="price">49%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">47%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">46%</span><br /><span class="qty">100000</span></td>
+      <td class="sell"><span class="price">45%</span><br /><span class="qty">400000</span></td>
+      <td class="sell"><span class="price">40%</span><br /><span class="qty">30000</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/contract-type">
+          <span class="name">seto/contract-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">half-time-full-time</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">correct-score</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">generic</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">winner</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">binary</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">over-under</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/date">
+          <span class="name">seto/date</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">year</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">month</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">day</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/entity">
+          <span class="name">seto/entity</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<a href="#seto/uuid-128" class="type">seto/uuid-128</a>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/entity-relationship">
+          <span class="name">seto/entity-relationship</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">entity</span>
+          <span>(<a href="#seto/entity" class="type">seto/entity</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">relationship</span>
+          <span>(<a href="#seto/entity-relationship-type" class="type">seto/entity-relationship-type</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/entity-relationship-type">
+          <span class="name">seto/entity-relationship-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">football-home-team</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">football-away-team</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">football-competition</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing-course</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing-horse</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing-jockey</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">contract-associated</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/event">
+          <span class="name">seto/event</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<a href="#seto/uuid-128" class="type">seto/uuid-128</a>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/event-category">
+          <span class="name">seto/event-category</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">sports</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">politics</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">current-affairs</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tv-and-entertainment</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/event-info">
+          <span class="name">seto/event-info</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">event</span>
+          <span>(<a href="#seto/event" class="type">seto/event</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/event-type" class="type">seto/event-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">category</span>
+          <span>(<a href="#seto/event-category" class="type">seto/event-category</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">slug</span>
+          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">name</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">parent</span>
+          <span>(<a href="#seto/event" class="type">seto/event</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">start-date</span>
+          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">start-time</span>
+          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">end-date</span>
+          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">end-time</span>
+          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">entities</span>
+          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">markets</span>
+          <span>(<a href="#seto/market-info" class="type">seto/market-info</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">description</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+An event's parent can be another event who's parent hierarchy can be any size.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/event-type">
+          <span class="name">seto/event-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">football-match</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">football-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">football</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">generic</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">football-generic</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">golf-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">boxing-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">formula-1-race</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">formula-1-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing-race</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing-course</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">golf-generic</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">eurovision-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tennis-match</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tennis-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">cycling-season</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">cycling-race</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">motogp-season</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/events">
+          <span class="name">seto/events</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">with-markets</span>
+          <span>(<a href="#seto/event-info" class="type">seto/event-info</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">parents</span>
+          <span>(<a href="#seto/event-info" class="type">seto/event-info</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+This record type is made available over HTTP. You can get the URL to the most recent date for a query by sending a <a href="#seto/events-request" class="type">events-request</a> to the API.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/events-request">
+          <span class="name">seto/events-request</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/events-request-type" class="type">seto/events-request-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">politics</span>
+          <span>(<span class="type">bool</span>)</span>
+
+          
+          <span class="default">Default: false</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">current-affairs</span>
+          <span>(<span class="type">bool</span>)</span>
+
+          
+          <span class="default">Default: false</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tv-and-entertainment</span>
+          <span>(<span class="type">bool</span>)</span>
+
+          
+          <span class="default">Default: false</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">sport-by-date</span>
+          <span>(<a href="#seto/sport-by-date" class="type">seto/sport-by-date</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">sport-other</span>
+          <span>(<span class="type">bool</span>)</span>
+
+          
+          <span class="default">Default: false</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Send this to the API and receive back a <a href="#seto/http-found" class="type">http-found</a> specifying the permanent URL to the event information for the query at this current point in time.
+</p>
+<p>
+politics, current-affairs, and tv-and-entertainment result in a feed for all of that category. Only one category can be specified.
+</p>
+<p>
+sport-other results in a feed for all sports given the following rules:
+<ul>
+  <li>football, horse-racing, or tennis AND date &gt; 7 days in the future - all others should be fetched using the sport-by-date option.</li>
+  <li>football, horse-racing, or tennis without an event date.</li>
+  <li>all other sports not football, horse-racing, or tennis.</li>
+</ul>
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/events-request-type">
+          <span class="name">seto/events-request-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">politics</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">current-affairs</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tv-and-entertainment</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">sport-by-date</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">sport-other</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/execution">
+          <span class="name">seto/execution</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">price-type</span>
+          <span>(<a href="#seto/price-type" class="type">seto/price-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">price</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity-type</span>
+          <span>(<a href="#seto/quantity-type" class="type">seto/quantity-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">microseconds</span>
+          <span>(<a href="#seto/microseconds" class="type">seto/microseconds</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+After subscribing to a market by sending a <a href="#seto/market-subscription" class="type">market-subscription</a> payload the <span class="field">last-execution</span> for each <a href="#seto/contract-quotes" class="type">contract-quotes</a> in the initial <a href="#seto/market-quotes" class="type">market-quotes</a> snapshot will be defined.
+</p>
+<p>
+For each separate <a href="#seto/contract-quotes" class="type">contract-quotes</a> payload sent during regular market update behaviour <em>after the initial <span class="type">market-quotes</span> snapshot</em> each <span class="type">execution</span> in the <a href="#seto/execution" class="type">executions</a> will represent the executions that resulted in the updated <a href="#seto/quote" class="type">quotes</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/http-found">
+          <span class="name">seto/http-found</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">url</span>
+          <span>(<a href="#seto/url" class="type">seto/url</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+When requesting information made available over HTTP this response will be sent back. The <a href="#eto/seq" type="seq">seq</a> is the sequence of the original request that is being replied to so that a client can associate the correct request with this response.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/id-invalid">
+          <span class="name">seto/id-invalid</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">field</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+When any identifier sent to Smarkets is invalid this payload will be sent back to the originating <a href="#eto/session" class="type">session</a>.
+</p>
+<p>
+The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> your application sent to Smarkets with the original <a href="#seto/order-create" class="type">order-create</a> so your application can detect which request included an invalid identifier.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/login">
+          <span class="name">seto/login</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">username</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">password</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">cookie</span>
+          <span>(<span class="type">binary</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+To login to the API specify just the <span class="field">username</span> and <span class="field">password</span> fields.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market">
+          <span class="name">seto/market</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<a href="#seto/uuid-128" class="type">seto/uuid-128</a>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-info">
+          <span class="name">seto/market-info</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">contracts</span>
+          <span>(<a href="#seto/contract-info" class="type">seto/contract-info</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">slug</span>
+          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">name</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">start-date</span>
+          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">start-time</span>
+          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">end-date</span>
+          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">end-time</span>
+          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">entities</span>
+          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">shortname</span>
+          <span>(<span class="type">string</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-quotes">
+          <span class="name">seto/market-quotes</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">contract-quotes</span>
+          <span>(<a href="#seto/contract-quotes" class="type">seto/contract-quotes</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">price-type</span>
+          <span>(<a href="#seto/price-type" class="type">seto/price-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity-type</span>
+          <span>(<a href="#seto/quantity-type" class="type">seto/quantity-type</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Sent back to a <a href="#eto/session" class="type">session</a> in response to a <a href="#seto/market-quotes-request" class="type">market-quotes-request</a>. It is also sent back to a <a href="#eto/session" class="type">session</a> when a <a href="#seto/market-subscription" class="type">market-subscription</a> is received by the server so the subscribed <a href="#eto/session" class="type">session</a> has the current state of a the <a href="#seto/quote" class="type">quotes</a> for all the <a href="#seto/contract" class="type">contracts</a> in a <a href="#market" class="type">market</a> from the starting point of subscription.
+</p>
+<p>
+When <span class="field">contract-quotes</span> is not given no quotes or last executions are available.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-quotes-request">
+          <span class="name">seto/market-quotes-request</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">depth</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          <span class="default">Default: 5</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Send this <a href="#seto/payload" class="type">payload</a> to get sent back a <a href="#seto/market-quotes" class="type">market-quotes</a> snapshot reflecting the current market depth of the <a href="#seto/contract" class="type">contracts</a> in a <a href="#seto/market" class="type">market</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-subscription">
+          <span class="name">seto/market-subscription</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Sending this to Smarkets will result in the <a href="#eto/session" class="type">session</a> being sent a <a href="#seto/market-quotes" class="type">market-quotes</a> snapshot immediately and a <a href="#seto/contract-quotes" class="type">contract-quotes</a> each time the available market depth is updated.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-unsubscription">
+          <span class="name">seto/market-unsubscription</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Once this is received your session will no longer be sent a <a href="#seto/contract-quotes" class="type">contract-quotes</a> each time a <a href="#seto/contract" class="type">contract</a>'s quotes are updated in a <a href="#seto/market" class="type">market</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/microseconds">
+          <span class="name">seto/microseconds</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order">
+          <span class="name">seto/order</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<a href="#seto/uuid-128" class="type">seto/uuid-128</a>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-accepted">
+          <span class="name">seto/order-accepted</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Smarkets will send a <a href="#seto/session" class="type">session</a> this message when an order has been accepted by a <a href="#seto/market" class="type">market's</a> book.
+</p>
+<p>
+The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> your application sent to Smarkets who's <a href="#seto/payload" class="type">seto/payload</a> had type <a href="#seto/order-create" class="type">order-create</a>. Use this to associated the <a href="#seto/order" class="type">order</a> with the request your application initiated.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-cancel">
+          <span class="name">seto/order-cancel</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> cancelled. You will receive a <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#seto/order-cancelled" class="type">order-cancelled</a> in response to this with <code>member-requested</code> <a href="#seto/order-cancelled-reason" class="type">order-cancelled-reason</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-cancelled">
+          <span class="name">seto/order-cancelled</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">reason</span>
+          <span>(<a href="#seto/order-cancelled-reason" class="type">seto/order-cancelled-reason</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+A <a href="#seto/payload" class="type">seto/payload</a> with this type is sent to a <a href="#seto/session" class="type">session</a> when an <a href="#seto/order" class="type">order</a> is cancelled may occur at any time and is not restricted to being a response to an <a href="#seto/order-cancel" class="type">order-cancel</a> payload type. Cancellation of the part of an <a href="#seto/order" class="type">order</a> that is not yet matched also occurs when a market is halted. Cancellation of a partially matched <a href="#seto/order" class="type">order</a> does not mean that the entire <a href="#seto/order" class="type">order</a> was cancelled, only the <a href="#seto/quantity" class="type">quantity</a> left is cancelled.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-cancelled-reason">
+          <span class="name">seto/order-cancelled-reason</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">member-requested</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-halted</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">insufficient-liquidity</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-create">
+          <span class="name">seto/order-create</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/order-create-type" class="type">seto/order-create-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">contract</span>
+          <span>(<a href="#seto/contract" class="type">seto/contract</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">side</span>
+          <span>(<a href="#seto/side" class="type">seto/side</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity-type</span>
+          <span>(<a href="#seto/quantity-type" class="type">seto/quantity-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">price-type</span>
+          <span>(<a href="#seto/price-type" class="type">seto/price-type</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">price</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+You'll most probably be calling this more than anything else in this API. In response to this Smarkets will send you one of <a href="#seto/order-accepted" class="type">order-accepted</a>, <a href="#seto/order-rejected" class="type">order-rejected</a>, or <a href="#seto/order-invalid" class="type">order-invalid</a>.
+</p>
+<p>
+To prevent your application from accidently creating more orders than it really wanted to you should always locally associate your orders within your application with the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> you send to Smarkets for the current <a href="#eto/session" class="type">session</a>.
+</p>
+<p>
+<em>If the <a href="#eto/seq" class="type">seq</a> for the <a href="#eto/payload" class="type">eto/payload</a> sent along with the <a href="#seto/payload" class="type">seto/payload</a> with type <span class="type">order-create</span> has a different outgoing <a href="#eto/seq" class="type">seq</a> number then <strong>it will result in a new order being created</strong>.</em>
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-create-type">
+          <span class="name">seto/order-create-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">limit</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-executed">
+          <span class="name">seto/order-executed</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">price</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity-type</span>
+          <span>(<a href="#seto/quantity-type" class="type">seto/quantity-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+When an <a href="#seto/order" class="type">order</a> created by your application's <a href="#eto/session" class="type">session</a> executes due to being fully or partially matched by another party taking the opposite position your <a href="#eto/session" class="type">session</a> will be sent a <a href="#seto/payload" class="type">seto/payload</a> with this type.
+</p>
+<p>
+The <a href="#seto/price" class="type">price</a> here may differ from that of the original <a href="#seto/order-create" class="type">order-creation</a> due to matching at a better price.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-invalid">
+          <span class="name">seto/order-invalid</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">reasons</span>
+          <span>(<a href="#seto/order-invalid-reason" class="type">seto/order-invalid-reason</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+An order is validated before being sent to a <a href="#market" class="type">market's</a> book. This will be sent in response to an <a href="#seto/order-create" class="type">order-create</a> in the case of one or more <a href="#seto/order-invalid-reason">order-invalid-reasons</a> being raised.
+</p>
+<p>
+The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> your application sent to Smarkets in the <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#order-create" class="type">order-create</a> so your application can detect which request was invalid.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-invalid-reason">
+          <span class="name">seto/order-invalid-reason</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">invalid-price</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">invalid-quantity</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-rejected">
+          <span class="name">seto/order-rejected</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">reason</span>
+          <span>(<a href="#seto/order-rejected-reason" class="type">seto/order-rejected-reason</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> your application sent to Smarkets in the <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#order-create" class="type">order-create</a> so your application can detect which request was invalid.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-rejected-reason">
+          <span class="name">seto/order-rejected-reason</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">insufficient-funds</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">limit-exceeded</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-not-open</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-settled</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-halted</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">crossed-self</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/payload">
+          <span class="name">seto/payload</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/payload-type" class="type">seto/payload-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">eto-payload</span>
+          <span>(<a href="#eto/payload" class="type">eto/payload</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">login</span>
+          <span>(<a href="#seto/login" class="type">seto/login</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-create</span>
+          <span>(<a href="#seto/order-create" class="type">seto/order-create</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-rejected</span>
+          <span>(<a href="#seto/order-rejected" class="type">seto/order-rejected</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-accepted</span>
+          <span>(<a href="#seto/order-accepted" class="type">seto/order-accepted</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-executed</span>
+          <span>(<a href="#seto/order-executed" class="type">seto/order-executed</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-cancel</span>
+          <span>(<a href="#seto/order-cancel" class="type">seto/order-cancel</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-cancelled</span>
+          <span>(<a href="#seto/order-cancelled" class="type">seto/order-cancelled</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-invalid</span>
+          <span>(<a href="#seto/order-invalid" class="type">seto/order-invalid</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-subscription</span>
+          <span>(<a href="#seto/market-subscription" class="type">seto/market-subscription</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-unsubscription</span>
+          <span>(<a href="#seto/market-unsubscription" class="type">seto/market-unsubscription</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-quotes-request</span>
+          <span>(<a href="#seto/market-quotes-request" class="type">seto/market-quotes-request</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-quotes</span>
+          <span>(<a href="#seto/market-quotes" class="type">seto/market-quotes</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">contract-quote</span>
+          <span>(<a href="#seto/contract-quote" class="type">seto/contract-quote</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">id-invalid</span>
+          <span>(<a href="#seto/id-invalid" class="type">seto/id-invalid</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">events-request</span>
+          <span>(<a href="#seto/events-request" class="type">seto/events-request</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">http-found</span>
+          <span>(<a href="#seto/http-found" class="type">seto/http-found</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+This is the type <a href="#encode">encoded</a>, <a href="#framing">framed</a>, and sent over the wire in and out of your application and Smarkets' servers. It wraps an <a href="#eto/payload" class="type">eto</a> payload to handle the <a href="#eto/seq" class="type">sequence</a> exchange.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/payload-type">
+          <span class="name">seto/payload-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">eto</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-create</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-rejected</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-accepted</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-executed</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-cancel</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-cancelled</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-invalid</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-subscription</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-unsubscription</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-quotes-request</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-quotes</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">contract-quote</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">id-invalid</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">events-request</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">http-found</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/price-type">
+          <span class="name">seto/price-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">percent-odds</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/quantity-type">
+          <span class="name">seto/quantity-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">payoff-currency</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/quote">
+          <span class="name">seto/quote</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">price</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Represents the sum of all <a href="#seto/quantity" class="type">quantity</a> currently quoted for <a href="#seto/contract">contract's</a> side at a specific <a href="#seto/price" class="type">price</a>. This represents the same as a value in a single box on Smarkets.com in market depth view.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/side">
+          <span class="name">seto/side</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">buy</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">sell</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/slug">
+          <span class="name">seto/slug</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<span class="type">string</span>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/sport-by-date">
+          <span class="name">seto/sport-by-date</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#seto/sport-by-date-type" class="type">seto/sport-by-date-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">date</span>
+          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+Specify this as the <a href="#seto/events-request" class="type">events-request</a> and you'll get sent back a <a href="#seto/http-found" class="type">http-found</a> for the <a href="#seto/events" class="type">events</a> with a specific <a href="#seto/date" class="type">date</a> and <a href="#seto/sport-by-date-type" class="type">sport-by-date-type</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/sport-by-date-type">
+          <span class="name">seto/sport-by-date-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">football</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">horse-racing</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tennis</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/time">
+          <span class="name">seto/time</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">hour</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">minute</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/url">
+          <span class="name">seto/url</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<span class="type">string</span>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/uuid-128">
+          <span class="name">seto/uuid-128</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">low</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">high</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          <span class="default">Default: 0</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      </div>
+      
+      <div id="eto">
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/login">
+          <span class="name">eto/login</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">session</span>
+          <span>(<a href="#eto/session" class="type">eto/session</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+An example <span class="type">login</span> for first establisting a session is described in the <a href="#eto/seq" class="type">seq</a> type.
+</p>
+
+<p>
+To resume a <a href="#eto/session" class="type">session</a> the field for this in the <span class="type">login</span> <a href="#eto/payload" class="type">eto/payload</a> needs to be specified with the identifier originally returned in the incoming <a href="#eto/login-response" class="type">login-response</a> who's <a href="#eto/payload" class="type">eto/payload</a> with <a href="#eto/seq">seq</a> <span class="seq">1</span>. The <a href="#eto/payload" class="type">eto/payload</a> with <span class="field">type</span> <span class="type">login</span> also needs to have the outgoing <a href="#eto/seq">seq</a> that your application was previously going to send before the connection was dropped. Your incoming sequence number also needs to be as it would have been before the connection was dropped so that any <a href="#seto/payload" class="type">seto/payloads</a> sent to your application from Smarkets while the connection was down can be <a href="#eto/replay">replayed</a>. This is done by comparing the sequence of the resulting <a href="#eto/payload" class="type">eto/payload</a> with <span class="field">type</span> <a href="#login-response" class="type">login-response</a> and the sequence your application is expecting to be next. Smarkets will do the same by comparing the sequence of your login message with what it expects to be the next payload and may also send a <a href="#eto/replay">replay</a> payload in your application's direction.
+</p>
+
+<table class="passing">
+  <thead>
+    <tr>
+      <th class="server" colspan="3">Server</th>
+      <th class="direction"></th>
+      <th class="client" colspan="3">Client</th>
+    </tr>
+    <tr>
+      <th>In</th>
+      <th>Out</th>
+      <th>Send/Receive</th>
+      <th class="direction">&lt;&nbsp;&nbsp;&gt;</th>
+      <th>Send/Receive</th>
+      <th>Out</th>
+      <th>In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="init">
+      <td><span class="seq">20</span></td>
+      <td><span class="seq">78</span></td>
+      <td class="encoded"></td>
+      <td class="direction">-</td>
+      <td class="encoded"></td>
+      <td><span class="seq">78</span></td>
+      <td><span class="seq">20</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">20</span></td>
+      <td><span class="seq">78</span></td>
+      <td class="encoded"></td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded">eto/payload{seq=20, login=eto/login{session=…}}</td>
+      <td><span class="seq changed">21</span></td>
+      <td><span class="seq">78</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq changed">21</span></td>
+      <td><span class="seq">78</span></td>
+      <td class="encoded">eto/payload{seq=20, login=eto/login{session=…}}</td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">21</span></td>
+      <td><span class="seq">78</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">21</span></td>
+      <td><span class="seq changed">79</span></td>
+      <td class="encoded">eto/payload{seq=78, login_response=…}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">21</span></td>
+      <td><span class="seq">78</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">21</span></td>
+      <td><span class="seq">79</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=78, login_response=…}</td>
+      <td><span class="seq">21</span></td>
+      <td><span class="seq changed">79</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="login-replay">Requesting replay after resuming a session <a href="#login-replay" rel="bookmark">permalink</a></h4>
+
+<p>
+Here is an example of when the server has allocated a number of payloads to be sent to the client's session while it was disconnected. The resulting replay sending and receiving has been interleaved to show the asynchronous nature of message passing (more than one can be sent before 1 is received).
+</p>
+
+<table class="passing">
+  <thead>
+    <tr>
+      <th class="server" colspan="3">Server</th>
+      <th class="direction"></th>
+      <th class="client" colspan="3">Client</th>
+    </tr>
+    <tr>
+      <th>In</th>
+      <th>Out</th>
+      <th>Send/Receive</th>
+      <th class="direction">&lt;&nbsp;&nbsp;&gt;</th>
+      <th>Send/Receive</th>
+      <th>Out</th>
+      <th>In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="init">
+      <td><span class="seq">40</span></td>
+      <td><span class="seq">58</span></td>
+      <td class="encoded"></td>
+      <td class="direction">-</td>
+      <td class="encoded"></td>
+      <td><span class="seq">40</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">40</span></td>
+      <td><span class="seq">58</span></td>
+      <td class="encoded"></td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded">eto/payload{seq=40, login=eto/login{session=…}}</td>
+      <td><span class="seq changed">41</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq changed">41</span></td>
+      <td><span class="seq">58</span></td>
+      <td class="encoded">eto/payload{seq=40, login=eto/login{session=…}}</td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">41</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">41</span></td>
+      <td><span class="seq changed">59</span></td>
+      <td class="encoded">eto/payload{seq=58, login_response=…}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">41</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">41</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=78, login_response=…}</td>
+      <td><span class="seq">41</span></td>
+      <td><span class="seq incorrect">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">41</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded">eto/payload{seq=41, is_replay=eto/replay{seq=54}}</td>
+      <td><span class="seq changed">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq changed">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=42, is_replay=eto/replay{seq=54}}</td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=54, type=pong, is_replay=true}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=55, type=pong, is_replay=true}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=54, type=pong, is_replay=true}</td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq changed">55</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=56, type=pong, is_replay=true}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=55, type=pong, is_replay=true}</td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq changed">56</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=56, type=pong, is_replay=true}</td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq changed">57</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=57, type=pong, is_replay=true}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded">eto/payload{seq=58, type=<a href="#replay" class="type">gapfill</a>, is_replay=true}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">54</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=57, type=pong, is_replay=true}</td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq changed">58</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq">59</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=58, type=<a href="#replay" class="type">gapfill</a>, is_replay=true}</td>
+      <td><span class="seq">42</span></td>
+      <td><span class="seq changed">59</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/login-response">
+          <span class="name">eto/login-response</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">session</span>
+          <span>(<a href="#eto/session" class="type">eto/session</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">reset</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+This is sent back to a client when the server has successfully created or resumed a <a href="#eto/session" class="type">session</a> in response to a <a href="#eto/login" class="type">login</a>. The <a href="#eto/session" class="type">session</a> is a unique identifier for the current connection's session and should be associated with the incoming and outgoing sequences of your application.
+</p>
+
+<p>
+The sequence of the <a href="#eto/payload" class="type">eto/payload</a> encapsulating this should be checked and handled in the way described in the <a href="#eto/login">login</a> section.
+</p>
+
+<p>
+If the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> encapsulating the requested <a href="#eto/login" class="type">eto/login</a> is less than what the server was expecting for a resumed session then the value of the <span class="field">reset</span> field will differ from the sequence the client had sent. You should design your code so that this does not happen, but during debugging it is sometimes necessary to automatically reset a client's outgoing sequence to this value upon receiving this.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/logout">
+          <span class="name">eto/logout</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">reason</span>
+          <span>(<a href="#eto/logout-reason" class="type">eto/logout-reason</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/logout-reason">
+          <span class="name">eto/logout-reason</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">none</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">heartbeat-timeout</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">confirmation</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login-timeout</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login-not-first-seq</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/payload">
+          <span class="name">eto/payload</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">type</span>
+          <span>(<a href="#eto/payload-type" class="type">eto/payload-type</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">is-replay</span>
+          <span>(<span class="type">bool</span>)</span>
+
+          
+          <span class="default">Default: false</span>
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">replay</span>
+          <span>(<a href="#eto/replay" class="type">eto/replay</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login</span>
+          <span>(<a href="#eto/login" class="type">eto/login</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login-response</span>
+          <span>(<a href="#eto/login-response" class="type">eto/login-response</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">logout</span>
+          <span>(<a href="#eto/logout" class="type">eto/logout</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/payload-type">
+          <span class="name">eto/payload-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">none</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">ping</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">pong</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">gapfill</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">heartbeat</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">replay</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">login-response</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">logout</span>
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/replay">
+          <span class="name">eto/replay</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">seq</span>
+          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+        <div class="description"><p>
+When the incoming <a href="#eto/payload" class="type">eto/payload's</a> <a href="#eto/seq" class="type">seq</a> is <em>greater</em> than the one the server or your application is expecting then a <a href="#eto/replay" class="type">replay</a> <a href="#eto/payload" class="type">eto/payload</a> needs to be sent to fill in the gap and bring that side in line with the other. An example of this can be found in the description of <a href="#eto/login" class="type">eto/login</a>. The <a href="#eto/seq" class="type">seq</a> for <a href="#eto/replay" class="type">replay</a> should not be confused with the <a href="#eto/seq" class="type">seq</a> for the <a href="#eto/payload" class="type">eto/payload</a> containing the <a href="#eto/replay" class="type">replay</a>. The <a href="#eto/seq" class="type">seq</a> here needs to be the sequence that is being requested for playback.
+<p>
+
+<p>
+When receiving an <a href="#eto/payload" class="type">eto/payload</a> with type <a href="#eto/replay" class="type">replay</a> every <a href="#seto/payload" class="type">seto/payload</a> with <a href="#eto/payload" class="type">eto/payload</a> from the requested sequence upwards should be resent to the other side of the connection with their <a href="#eto/payload" class="type">eto/payload</a> and sequence entact but with the <span class="field">is_replay</span> value set to <code>true</code>. Both the server and clients need to do this.
+</p>
+
+<p>
+Some messages <em>should not</em> be re-sent and instead replaced with the type <span class="type">gapfill</span>:
+</p>
+<ul>
+  <li><a href="#eto/login" class="type">login</a></li>
+  <li><a href="#eto/login-response" class="type">login-response</a></li>
+  <li><a href="#eto/replay" class="type">replay</a></li>
+  <li><a href="#eto/heartbeat" class="type">heartbeat</a></li>
+</ul>
+<p>
+An example of this can be seen when <a href="#login-replay">resuming a session</a> for server outgoing sequence <span class="seq">58</span> which was originally a <span class="type">login-response</span>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/seq">
+          <span class="name">eto/seq</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+        <div class="description"><p>
+The Smarkets API is based on but not yet a subset of the <a href="http://www.fixprotocol.org/">Financial Information eXchange (FIX) Protocol</a>. The sequence field is the primary part of the FIX protocol that we decided to adopt when implementing this revision of the Smarkets API. It's purpose is to guarantee the order of messages shared between the Smarkets' server and connected clients, and by doing some allows asyncronous message passing and high throughput in both directions.
+</p>
+
+<h4>The life of a session sequence</h4>
+<p>
+When a connection is first made <a href="#seto/login" class="type">login</a> and <a href="#eto/login-response" class="type">login-response</a> are exhanged, each encapsulated inside an <a href="#seto/payload" class="type">seto/payload</a> and <a href="#eto/payload" class="type">eto/payload</a>. The response includes the unique <a href="#eto/session" class="type">session</a> identifier associated with the current connections incoming and outgoing sequences. The <span class="type">seq</span> for both of these <em>must</em> be <span class="seq">1</span>, this is to establish the starting point for all subsiquent payloads in this <a href="#eto/session" class="type">session</a>. Both sides of this exchange need to maintain the state of outgoing and next expected incoming sequences. In this login example the client's outgoing sequence starts at <span class="seq">1</span> and the server's expected incoming sequence is also at <span class="seq">1</span>, so when the payload is received it is correctly compared and then processed. After the payload is sent by the client it increments its outgoing sequence to <span class="seq">2</span>, and once the server correctly receives payload <span class="seq">1</span> it will increment it's expected incoming sequence to <span class="seq">2</span>.
+</p>
+<table class="passing">
+  <thead>
+    <tr>
+      <th class="server" colspan="3">Server</th>
+      <th class="direction"></th>
+      <th class="client" colspan="3">Client</th>
+    </tr>
+    <tr>
+      <th>In</th>
+      <th>Out</th>
+      <th>Send/Receive</th>
+      <th class="direction">&lt;&nbsp;&nbsp;&gt;</th>
+      <th>Send/Receive</th>
+      <th>Out</th>
+      <th>In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="init">
+      <td><span class="seq">1</span></td>
+      <td><span class="seq">1</span></td>
+      <td class="encoded"></td>
+      <td class="direction">-</td>
+      <td class="encoded"></td>
+      <td><span class="seq">1</span></td>
+      <td><span class="seq">1</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">1</span></td>
+      <td><span class="seq">1</span></td>
+      <td class="encoded"></td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded">eto/payload{seq=1, login=…}</td>
+      <td><span class="seq changed">2</span></td>
+      <td><span class="seq">1</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq changed">2</span></td>
+      <td><span class="seq">1</span></td>
+      <td class="encoded">eto/payload{seq=1, login=…}</td>
+      <td class="direction left">&lt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">2</span></td>
+      <td><span class="seq">1</span></td>
+    </tr>
+    <tr class="odd">
+      <td><span class="seq">2</span></td>
+      <td><span class="seq changed">2</span></td>
+      <td class="encoded">eto/payload{seq=1, login_response=…}</td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded"></td>
+      <td><span class="seq">2</span></td>
+      <td><span class="seq">1</span></td>
+    </tr>
+    <tr>
+      <td><span class="seq">2</span></td>
+      <td><span class="seq">2</span></td>
+      <td class="encoded"></td>
+      <td class="direction right">&gt;</td>
+      <td class="encoded">eto/payload{seq=1, login_response=…}</td>
+      <td><span class="seq">2</span></td>
+      <td><span class="seq changed">2</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+This simple example is basically a payload and an *ack* style response, but once this initial step has taken place many incoming and outgoing payload can be sent potentially without any payload based acknowledgement. Acknowledgement is done by comparing the incoming message's sequence with the expected incoming sequence. If a process in your application performing a state transition based on an incoming payload crashes then you want to maintain that you have <em>not</em> processed that sequence number. To do this the expected next incoming sequence number should not be incremented, and when the next payload is received it will be incorrect by 1 step. To handle these cases a payload with type <a href="#eto/replay" class="type">replay</a> is sent.
+</p>
+
+<p>
+<a href="#eto/session" class="type">Sessions</a> can and <em>should</em> be resumed whenever possible, and can be done via a <a href="#eto/login" class="type">login</a> payload with the <a href="#eto/session" class="type">session</a> field specifying the identifier first returned by the <a href="#eto/login-response" class="type">login-response</a> when the session was first establisted (the one with seq <span class="seq">1</span>). An example of this can be found in the documentation for <a href="#eto/login" class="type">login</a>.
+</p>
+</div>
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/session">
+          <span class="name">eto/session</span>
+          <span class="piqi_type">alias</span>
+          
+          <span>(<span class="type">string</span>)</span>
+
+          
+        </h4>
+
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      </div>
+      
+    </div>
+
+    </body>
+  </html>

@@ -1,0 +1,10 @@
+---
+layout: default
+title: Smarkets API
+---
+{% for post in site.posts %}
+<h2>{{ post.title }}</h2>
+<div class="date">{{ post.date | date_to_string }}</div>
+<a href="https://github.com/{{ post.author }}">{{ post.author }}</a>
+{{ post.content }}
+{% endfor %}
