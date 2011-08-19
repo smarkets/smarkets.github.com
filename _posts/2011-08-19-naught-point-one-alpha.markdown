@@ -2,6 +2,7 @@
 layout: default
 title: Naught Point One Alpha
 author: mokele
+published: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pellentesque tempus odio, nec sagittis enim porttitor bibendum. Praesent nunc erat, adipiscing et tempus a, scelerisque sit amet libero. Nam in libero et elit pellentesque commodo. Nulla viverra bibendum tincidunt. Proin in arcu lacus, et venenatis sem. Nulla facilisi. Ut varius tellus et quam scelerisque vel volutpat nunc ultricies. Nunc aliquam mauris eu velit vestibulum pretium. Mauris suscipit sem at mi ultrices fringilla. Aenean sagittis massa vel augue rutrum at euismod ligula lobortis. Nam consectetur sapien quis erat egestas molestie. Curabitur ullamcorper, felis vel lobortis sagittis, orci lacus lobortis leo, aliquam ultricies purus felis eget ante.
 
