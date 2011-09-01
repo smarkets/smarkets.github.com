@@ -1,6 +1,69 @@
 body {
-  font-family: Arial;
+    font-family: Arial, sans-serif;
+    background: #f1f1f1;
 }
-ul li {
-  margin: 0.5em 0;
+
+a {
+    -webkit-transition: color 0.25s;
+    -moz-transition: color 0.25s;
+}
+
+a:link,
+a:visited {
+    color: #666;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #7CA2B9;
+}
+
+div#header,
+div#footer {
+    padding: 5px 20px;
+    background-color: #232328;
+    display: block;
+    background: -webkit-gradient(
+        linear,
+        0 0%,
+        0 80%,
+        from(#4F5057),
+        to(#232328)
+    );
+    background: -moz-linear-gradient(
+        0 80% 90deg,
+        #232328,
+        #4F5057
+    );
+    border-top: 5px solid #000;
+    color: #FFF;
+}
+
+div#header h1 {
+    font-size: 24px;
+    padding: 10px 5px;
+}
+
+div#header h1 span {
+    background: url(./smarkets-logo.png) no-repeat;
+    text-indent: -9999px;
+    display: block;
+    position: relative;
+    width: 190px;
+    height: 44px;
+    float: left;
+    margin-right: 1ex;
+    margin-top: -15px;
+}
+
+div#content {
+    background: #fff;
+    margin: 0 20px;
+    padding: 20px;
+}
+
+div#footer a:link,
+div#footer a:visited {
+    color: #fff;
 }

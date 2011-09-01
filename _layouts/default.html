@@ -5,17 +5,25 @@
     <title>{{ page.title }}</title>
     <link rel="shortcut icon" type="image/ico" href="https://d2ddi39c2rqcmy.cloudfront.net/img/favicon.602c606e.ico" />
     <link rel="apple-touch-icon" type="image/png" href="https://diy1dqjwmz5rw.cloudfront.net/img/apple-touch-icon.b3237f5b.png" />
-    <link href="http://smarkets.github.com/atom.xml" rel="alternate" title="Smarkets API" type="application/atom+xml" />
-    <link href="static/style.css" rel="stylesheet" type="text/css" />
+    <link href="atom.xml" rel="alternate" title="Smarkets API updates" type="application/atom+xml" />
+    <link href="/static/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Smarkets API</h1>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/docs/">Documentation</a></li>
-      <li><a href="/downloads.html">Downloads &amp; Code</a></li>
-      <li><a href="/terms-conditions.html">Terms &amp; Conditions of API Access</a></li>
-    </ul>
-    {{ content }}
+    <div id="header">
+        <h1><span>Smarkets</span> API Documentation</h1>
+    </div>
+    <div id="content">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/downloads.html">Downloads &amp; Code</a></li>
+          <li><a href="/terms-conditions.html">Terms &amp; Conditions of API Access</a></li>
+        </ul>
+        {{ content }}
+    </div>
+    <div id="footer">
+        <p><a href="/terms-conditions.html">Terms &amp; Conditions of API Access</a></p>
+    </div>
   </body>
 </html>
