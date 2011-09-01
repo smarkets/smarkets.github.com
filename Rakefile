@@ -5,7 +5,7 @@ task :clean do
 end
 
 task :serve do
-  sh "jekyll --serve"
+  sh "jekyll --serve --auto"
 end
 
 task :deploy do
