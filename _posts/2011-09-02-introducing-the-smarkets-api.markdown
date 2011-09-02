@@ -16,7 +16,7 @@ The Smarkets API was designed with two main objectives in mind - keeping develop
    * real-time market price updates
    * order executions
    * _and a lot more planned_
- * Exposing [primary ids](/docs/#seto/entity-relationship) for horses, jockeys, and football teams _(a requirement from speaking with client developers)_
+ * Exposing [ids](/docs/#seto/entity-relationship) for horses, jockeys, and football teams _(a requirement from speaking with client developers)_
  * Beginning with officially supported [Python][] and [Erlang][] SDKs. _(These are the languages we use internally; it's what we know best)_
  * Evolving the API on an ongoing basis based on feedback from the community. All feedback is welcome, and greatly encouraged. Join us in the __#smarkets__ IRC channel on Freenode
 
