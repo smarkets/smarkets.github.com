@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     background: #f1f1f1;
+    width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
 }
 
 a {
@@ -59,11 +62,22 @@ div#header h1 span {
 
 div#content {
     background: #fff;
-    margin: 0 20px;
     padding: 20px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 div#footer a:link,
 div#footer a:visited {
     color: #fff;
+}
+
+ul#menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+ul#menu li {
+    padding: 0 1em 0 0;
+    display: inline;
 }
