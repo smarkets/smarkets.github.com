@@ -3,11 +3,11 @@ layout: default
 title: Smarkets API
 ---
 <p>
-The Smarkets API is currently in private alpha, <a href="atom.xml" rel="alternate">subscribe</a> and you'll be updated when we start to open it up a bit more.
+The Smarkets API is currently in private alpha, <a href="http://feeds.feedburner.com/SmarketsApi" rel="alternate">subscribe</a> and you'll be updated when we start to open it up a bit more.
 </p>
 {% for post in site.posts %}
 <h2>{{ post.title }}</h2>
-<div class="date">{{ post.date | date_to_string }}</div>
-<a href="https://github.com/{{ post.author }}">{{ post.author }}</a>
+written by <a href="https://github.com/{{ post.author }}">{{ post.author }}</a>
+on <a href="{{ post.url }}" class="date">{{ post.date | date_to_string }}</a>
 {{ post.content }}
 {% endfor %}
