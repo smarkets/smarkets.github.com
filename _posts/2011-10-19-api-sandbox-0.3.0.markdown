@@ -40,4 +40,5 @@ See you on freenode IRC channel #smarkets
 [smarkets.github.com]: http://smarkets.github.com/
 [orders-for-market-request]: /smk_api_docs/#seto/orders-for-market-request
 [logout-reasons]: /smk_api_docs/#eto/logout
+[contract-quotes]: /smk_api_docs/#seto/contract-quotes
 [Smarkets.com]: https://smarkets.com/
