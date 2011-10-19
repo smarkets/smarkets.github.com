@@ -6,9 +6,16 @@ body {
     font-size: 14px;
 }
 
+h2 {
+    margin-bottom: 0;
+}
+
 a {
     -webkit-transition: color 0.25s;
     -moz-transition: color 0.25s;
+}
+p {
+    line-height: 18px;
 }
 
 a:link,
