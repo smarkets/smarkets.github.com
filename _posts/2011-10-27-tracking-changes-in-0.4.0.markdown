@@ -21,7 +21,7 @@ The sandbox is for customers in a position to be placing bets at this time,
 but we'll be providing more tools on top of the API for mass quote fetching 
 in the coming months. See you on the other side!
 
-/me goes back to organising [live #erlang release upgrades][]
+/me goes back to organising [live erlang release upgrades][]
 
 [live #erlang release upgrades]: http://www.youtube.com/watch?v=O_HyZ5aW76c#t=1m4s
 [IronSmarkets]: https://github.com/smarkets/IronSmarkets
