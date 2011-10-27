@@ -88,3 +88,12 @@ ul#menu li {
     padding: 0 1em 0 0;
     display: inline;
 }
+
+pre code {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    background: #eee;
+    display: inline-block;
+    font-size: 12px;
+    padding: 1px 5px 3px 5px;
+}
