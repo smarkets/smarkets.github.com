@@ -12,64 +12,38 @@
       <h1><a href="http://smarkets.github.com/"><img src="logo.gif" class="logo" /></a>
           <a href=""><span>Streaming API Documentation</span></a></h1>
       <ul>
-        <li><strong>(v0.2.2)</strong></li>
+        <li><strong>(v1.0.0)</strong></li>
         <li><a href="">Introduction</a></li>
         <li><a href="#encode">Encoding Payloads</a></li>
         <li><a href="#framing">Framing</a></li>
         <li>
           <div style="margin-bottom:0.5em;"><a href="#defs">Type Definitions</a></div>
-          <a href="#seto">seto</a> (v0.2.1)
+          <a href="#seto">seto</a> (v1.0.0)
           <ul>
-            
-            <li><a href="#seto/content-type">content-type</a></li>
             
             <li><a href="#seto/contract">contract</a></li>
             
-            <li><a href="#seto/contract-info">contract-info</a></li>
-            
             <li><a href="#seto/contract-quotes">contract-quotes</a></li>
             
-            <li><a href="#seto/contract-type">contract-type</a></li>
+            <li><a href="#seto/currency">currency</a></li>
             
-            <li><a href="#seto/date">date</a></li>
+            <li><a href="#seto/decimal">decimal</a></li>
             
             <li><a href="#seto/entity">entity</a></li>
             
-            <li><a href="#seto/entity-relationship">entity-relationship</a></li>
-            
-            <li><a href="#seto/entity-relationship-type">entity-relationship-type</a></li>
-            
             <li><a href="#seto/event">event</a></li>
             
-            <li><a href="#seto/event-category">event-category</a></li>
-            
-            <li><a href="#seto/event-info">event-info</a></li>
-            
-            <li><a href="#seto/event-type">event-type</a></li>
-            
-            <li><a href="#seto/events">events</a></li>
-            
-            <li><a href="#seto/events-request">events-request</a></li>
-            
-            <li><a href="#seto/events-request-type">events-request-type</a></li>
-            
             <li><a href="#seto/execution">execution</a></li>
-            
-            <li><a href="#seto/http-found">http-found</a></li>
-            
-            <li><a href="#seto/invalid-request">invalid-request</a></li>
-            
-            <li><a href="#seto/invalid-request-type">invalid-request-type</a></li>
             
             <li><a href="#seto/login">login</a></li>
             
             <li><a href="#seto/market">market</a></li>
             
-            <li><a href="#seto/market-info">market-info</a></li>
-            
             <li><a href="#seto/market-quotes">market-quotes</a></li>
             
-            <li><a href="#seto/market-quotes-request">market-quotes-request</a></li>
+            <li><a href="#seto/market-state">market-state</a></li>
+            
+            <li><a href="#seto/market-state-type">market-state-type</a></li>
             
             <li><a href="#seto/market-subscribe">market-subscribe</a></li>
             
@@ -95,6 +69,8 @@
             
             <li><a href="#seto/order-create-type">order-create-type</a></li>
             
+            <li><a href="#seto/order-execute-voided">order-execute-voided</a></li>
+            
             <li><a href="#seto/order-executed">order-executed</a></li>
             
             <li><a href="#seto/order-invalid">order-invalid</a></li>
@@ -119,19 +95,19 @@
             
             <li><a href="#seto/slug">slug</a></li>
             
-            <li><a href="#seto/sport-by-date">sport-by-date</a></li>
-            
-            <li><a href="#seto/sport-by-date-type">sport-by-date-type</a></li>
-            
-            <li><a href="#seto/time">time</a></li>
+            <li><a href="#seto/time-in-force-type">time-in-force-type</a></li>
             
             <li><a href="#seto/url">url</a></li>
             
             <li><a href="#seto/uuid-128">uuid-128</a></li>
             
           </ul>
-          <a href="#eto">eto</a> (v0.2.0)
+          <a href="#eto">eto</a> (v1.0.0)
           <ul>
+            
+            <li><a href="#eto/date">date</a></li>
+            
+            <li><a href="#eto/datetime">datetime</a></li>
             
             <li><a href="#eto/login">login</a></li>
             
@@ -151,6 +127,8 @@
             
             <li><a href="#eto/session">session</a></li>
             
+            <li><a href="#eto/time">time</a></li>
+            
           </ul>
         </li>
       </ul>
@@ -164,7 +142,7 @@
       To work with the Smarkets Streaming API you will need to:
       <ol class="steps">
         <li>
-        Create a persistent TCP connection to <code>api-sandbox.smarkets.com:3701</code>
+        Create a secure persistent TCP connection to <code>api-sandbox.smarkets.com:3701</code>
         </li>
         <li>
         <a href="#encode">Encode</a>, <a href="#framing">Frame</a>, and send a <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#seto/login" class="type">login</a> and its <a href="#eto/payload" class="type">eto/payload</a> with <a href="#eto/seq">seq</a> <span class="seq">1</span>
@@ -327,34 +305,6 @@
       
       
       <div class="def">
-        <h3 id="seto/content-type">
-          <span class="name">seto/content-type</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">protobuf</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
         <h3 id="seto/contract">
           <span class="name">seto/contract</span>
           <span class="piqi_type">alias</span>
@@ -377,79 +327,6 @@
       
       
       <div class="def">
-        <h3 id="seto/contract-info">
-          <span class="name">seto/contract-info</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">contract</span>
-          <span>(<a href="#seto/contract" class="type">seto/contract</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">type</span>
-          <span>(<a href="#seto/contract-type" class="type">seto/contract-type</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">slug</span>
-          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">name</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">entities</span>
-          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">shortname</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
         <h3 id="seto/contract-quotes">
           <span class="name">seto/contract-quotes</span>
           <span class="piqi_type">record</span>
@@ -458,6 +335,14 @@
 
         
         <ul>
+          
+          <li>
+          <span class="name">market</span>
+          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
+
+          
+          
+          </li>
           
           <li>
           <span class="name">contract</span>
@@ -542,7 +427,7 @@ contract_quotes{
   bids = [
     quote{
       price = 5000,
-      quantity = 200000
+      quantity = 100000
     }
   ]
 }
@@ -591,6 +476,10 @@ contract_quotes{
     quote{
       price = 4500,
       quantity = 400000
+    },
+    quote{
+      price = 5000,
+      quantity = 0
     }
   ],
   offers = [
@@ -609,7 +498,8 @@ contract_quotes{
 }
 </pre></code>
         <ul>
-        <li class="event">Get rid of 50% available for a seller to take due to receiving 1 worse price from outside the depth size.</li>
+          <li class="event">Get rid of 50% available for a seller to take due to receiving 1 worse price from outside the depth size and 
+          a new 5000 quantity of 0.</li>
         <li class="event">Move prices over to fill in where 50% used to live and add the 45% we were just told.</li>
         <li class="event">
           Push over the worse sell quotes to the left and fit in the 50% available for someone to buy.
@@ -656,6 +546,10 @@ contract_quotes{
   contract = ...,
   offers = [
     quote{
+      price = 5000,
+      quantity = 0
+    },
+    quote{
       price = 5100,
       quantity = 20000
     }
@@ -675,7 +569,7 @@ contract_quotes{
 }
 </pre></code>
         <ul>
-          <li class="event">Remove 50% due to execution and an extra price coming in from outside the depth size of 5.</li>
+          <li class="event">Remove 50% due to execution, a new quantity of 0, and an extra price coming in from outside the depth size of 5.</li>
           <li class="event">Update 51% to quantity 20000</li>
         </ul>
       </td>
@@ -712,7 +606,7 @@ contract_quotes{
 <code><pre>
 contract_quotes{
   contract = ...,
-  offers = [
+  bids = [
     quote{
       price = 4800,
       quantity = 0
@@ -765,8 +659,8 @@ contract_quotes{
       
       
       <div class="def">
-        <h3 id="seto/contract-type">
-          <span class="name">seto/contract-type</span>
+        <h3 id="seto/currency">
+          <span class="name">seto/currency</span>
           <span class="piqi_type">enum</span>
           
         </h4>
@@ -777,32 +671,17 @@ contract_quotes{
         <ul>
           
           <li>
-          <span class="name">half-time-full-time</span>
+          <span class="name">gbp</span>
           
           </li>
           
           <li>
-          <span class="name">correct-score</span>
+          <span class="name">eur</span>
           
           </li>
           
           <li>
-          <span class="name">generic</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">winner</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">binary</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">over-under</span>
+          <span class="name">usd</span>
           
           </li>
           
@@ -818,8 +697,8 @@ contract_quotes{
       
       
       <div class="def">
-        <h3 id="seto/date">
-          <span class="name">seto/date</span>
+        <h3 id="seto/decimal">
+          <span class="name">seto/decimal</span>
           <span class="piqi_type">record</span>
           
         </h4>
@@ -828,26 +707,22 @@ contract_quotes{
         <ul>
           
           <li>
-          <span class="name">year</span>
-          <span>(<span class="type">uint32</span>)</span>
+          <span class="name">value</span>
+          <span>(<a href="#seto/int64" class="type">seto/int64</a>)</span>
 
           
           
           </li>
           
           <li>
-          <span class="name">month</span>
+          <span class="name">exponent</span>
           <span>(<span class="type">uint32</span>)</span>
 
           
+          <span class="default">Default: 2</span>
           
-          </li>
           
-          <li>
-          <span class="name">day</span>
-          <span>(<span class="type">uint32</span>)</span>
-
-          
+          <span class="optional">[optional]</span>
           
           </li>
           
@@ -887,108 +762,6 @@ contract_quotes{
       
       
       <div class="def">
-        <h3 id="seto/entity-relationship">
-          <span class="name">seto/entity-relationship</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">entity</span>
-          <span>(<a href="#seto/entity" class="type">seto/entity</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">relationship</span>
-          <span>(<a href="#seto/entity-relationship-type" class="type">seto/entity-relationship-type</a>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/entity-relationship-type">
-          <span class="name">seto/entity-relationship-type</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">football-home-team</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">football-away-team</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">football-competition</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing-course</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing-horse</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing-jockey</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">contract-associated</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">generic</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
         <h3 id="seto/event">
           <span class="name">seto/event</span>
           <span class="piqi_type">alias</span>
@@ -1000,473 +773,6 @@ contract_quotes{
 
         
 
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/event-category">
-          <span class="name">seto/event-category</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">sport</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">politics</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">current-affairs</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">tv-and-entertainment</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">generic</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/event-info">
-          <span class="name">seto/event-info</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">event</span>
-          <span>(<a href="#seto/event" class="type">seto/event</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">type</span>
-          <span>(<a href="#seto/event-type" class="type">seto/event-type</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">category</span>
-          <span>(<a href="#seto/event-category" class="type">seto/event-category</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">slug</span>
-          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">name</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">parent</span>
-          <span>(<a href="#seto/event" class="type">seto/event</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">start-date</span>
-          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">start-time</span>
-          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">end-date</span>
-          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">end-time</span>
-          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">entities</span>
-          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">markets</span>
-          <span>(<a href="#seto/market-info" class="type">seto/market-info</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">description</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-        <div class="description"><p>
-An event's parent can be another event who's parent hierarchy can be any size.
-</p>
-</div>
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/event-type">
-          <span class="name">seto/event-type</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">football-match</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">football-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">football</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">generic</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">football-generic</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">golf-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">boxing-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">formula-1-race</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">formula-1-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing-race</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing-course</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">horse-racing</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">golf-generic</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">eurovision-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">tennis-match</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">tennis-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">cycling-season</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">cycling-race</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">motogp-season</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/events">
-          <span class="name">seto/events</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">with-markets</span>
-          <span>(<a href="#seto/event-info" class="type">seto/event-info</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">parents</span>
-          <span>(<a href="#seto/event-info" class="type">seto/event-info</a>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-        <div class="description"><p>
-This record type is made available over HTTP. You can get the URL to the most recent date for a query by sending a <a href="#seto/events-request" class="type">events-request</a> to the API.
-</p>
-</div>
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/events-request">
-          <span class="name">seto/events-request</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">type</span>
-          <span>(<a href="#seto/events-request-type" class="type">seto/events-request-type</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">content-type</span>
-          <span>(<a href="#seto/content-type" class="type">seto/content-type</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">sport-by-date</span>
-          <span>(<a href="#seto/sport-by-date" class="type">seto/sport-by-date</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-        <div class="description"><p>
-Send this to the API and receive back a <a href="#seto/http-found" class="type">http-found</a> specifying the permanent URL to the event information for the query at this current point in time.
-</p>
-<p>
-politics, current-affairs, and tv-and-entertainment result in a feed for all of that category. Only one category can be specified.
-</p>
-<p>
-sport-other results in a feed for all sports given the following rules:
-<ul>
-  <li>football, horse-racing, or tennis AND date &gt; 7 days in the future - all others should be fetched using the sport-by-date option.</li>
-  <li>football, horse-racing, or tennis without an event date.</li>
-  <li>all other sports not football, horse-racing, or tennis.</li>
-</ul>
-</p>
-</div>
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/events-request-type">
-          <span class="name">seto/events-request-type</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">politics</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">current-affairs</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">tv-and-entertainment</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">sport-by-date</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">sport-other</span>
-          
-          </li>
-          
-        </ul>
         
 
         
@@ -1541,117 +847,6 @@ For each separate <a href="#seto/contract-quotes" class="type">contract-quotes</
       
       
       <div class="def">
-        <h3 id="seto/http-found">
-          <span class="name">seto/http-found</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">seq</span>
-          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">url</span>
-          <span>(<a href="#seto/url" class="type">seto/url</a>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-        <div class="description"><p>
-When requesting information made available over HTTP this response will be sent back. The <a href="#eto/seq" type="seq">seq</a> is the sequence of the original request that is being replied to so that a client can associate the correct request with this response.
-</p>
-</div>
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/invalid-request">
-          <span class="name">seto/invalid-request</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">seq</span>
-          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">type</span>
-          <span>(<a href="#seto/invalid-request-type" class="type">seto/invalid-request-type</a>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/invalid-request-type">
-          <span class="name">seto/invalid-request-type</span>
-          <span class="piqi_type">enum</span>
-          
-        </h4>
-
-        
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">date-out-of-range</span>
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
         <h3 id="seto/login">
           <span class="name">seto/login</span>
           <span class="piqi_type">record</span>
@@ -1691,6 +886,16 @@ When requesting information made available over HTTP this response will be sent 
           
           </li>
           
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -1699,6 +904,12 @@ When requesting information made available over HTTP this response will be sent 
         
         <div class="description"><p>
 To login to the API specify just the <span class="field">username</span> and <span class="field">password</span> fields.
+</p>
+
+<p><strong>account-sequence</strong>: every event on a smarkets account is assigned an incremental sequence number. account-sequence is passed to the client in <a href="#seto/order-accepted" class="type">order-accepted</a>, <a href="#seto/order-rejected" class="type">order-rejected</a>, <a href="#seto/order-invalid" class="type">order-invalid</a>, <a href="#seto/order-cancelled" class="type">order-cancelled<a>, <a href="#seto/order-cancelled-rejected" class="type">order-cancelled-rejected</a>.</p>
+
+<p>If for any reason a client gets disconnected, the client can re-login and set the account-sequence field. The api will resend all messages from the account-sequence on.<br />
+<u>Note:</u> the replay stream is bounded. You won't be able to replay old messages.
 </p>
 </div>
         
@@ -1719,119 +930,6 @@ To login to the API specify just the <span class="field">username</span> and <sp
           
         </h4>
 
-        
-
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/market-info">
-          <span class="name">seto/market-info</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">market</span>
-          <span>(<a href="#seto/market" class="type">seto/market</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">contracts</span>
-          <span>(<a href="#seto/contract-info" class="type">seto/contract-info</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">slug</span>
-          <span>(<a href="#seto/slug" class="type">seto/slug</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">name</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">start-date</span>
-          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">start-time</span>
-          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">end-date</span>
-          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">end-time</span>
-          <span>(<a href="#seto/time" class="type">seto/time</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">entities</span>
-          <span>(<a href="#seto/entity-relationship" class="type">seto/entity-relationship</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">shortname</span>
-          <span>(<span class="type">string</span>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-        </ul>
         
 
         
@@ -1908,8 +1006,8 @@ When <span class="field">contract-quotes</span> is not given no quotes or last e
       
       
       <div class="def">
-        <h3 id="seto/market-quotes-request">
-          <span class="name">seto/market-quotes-request</span>
+        <h3 id="seto/market-state">
+          <span class="name">seto/market-state</span>
           <span class="piqi_type">record</span>
           
         </h4>
@@ -1925,16 +1023,72 @@ When <span class="field">contract-quotes</span> is not given no quotes or last e
           
           </li>
           
+          <li>
+          <span class="name">state</span>
+          <span>(<a href="#seto/market-state-type" class="type">seto/market-state-type</a>)</span>
+
+          
+          
+          </li>
+          
         </ul>
         
 
         
 
         
-        <div class="description"><p>
-Send this <a href="#seto/payload" class="type">payload</a> to get sent back a <a href="#seto/market-quotes" class="type">market-quotes</a> snapshot reflecting the current market depth of the <a href="#seto/contract" class="type">contracts</a> in a <a href="#seto/market" class="type">market</a>.
-</p>
-</div>
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/market-state-type">
+          <span class="name">seto/market-state-type</span>
+          <span class="piqi_type">enum</span>
+          
+        </h4>
+
+        
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">new</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">open</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">live</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">halted</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">settled</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">voided</span>
+          
+          </li>
+          
+        </ul>
+        
+
         
 
       </div>
@@ -2085,6 +1239,26 @@ Once this is received your session will no longer be sent a <a href="#seto/contr
           
           </li>
           
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2124,6 +1298,16 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
           
           </li>
           
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2132,6 +1316,9 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
         
         <div class="description"><p>
 Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> cancelled. You will receive a <a href="#seto/payload" class="type">seto/payload</a> with type <a href="#seto/order-cancelled" class="type">order-cancelled</a> in response to this with <code>member-requested</code> <a href="#seto/order-cancelled-reason" class="type">order-cancelled-reason</a>.
+</p>
+<p>
+reference is an unsigned 64bit integer that can optionally be set by the client. This reference will be returned to the client in <a href="#seto/order-cancelled" class="type">order-cancelled</a> or <a href="#seto/order-cancelled-reason" class="type">order-cancelled-reason</a>
 </p>
 </div>
         
@@ -2153,8 +1340,8 @@ Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> ca
         <ul>
           
           <li>
-          <span class="name">seq</span>
-          <span>(<a href="#eto/seq" class="type">eto/seq</a>)</span>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
 
           
           
@@ -2165,6 +1352,26 @@ Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> ca
           <span>(<a href="#seto/order-cancel-rejected-reason" class="type">seto/order-cancel-rejected-reason</a>)</span>
 
           
+          
+          </li>
+          
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
           
           </li>
           
@@ -2203,6 +1410,11 @@ Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> ca
           
           </li>
           
+          <li>
+          <span class="name">capacity-reached</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2237,6 +1449,26 @@ Send this to Smarkets to have an <a href="#seto/order" class="type">order</a> ca
           <span>(<a href="#seto/order-cancelled-reason" class="type">seto/order-cancelled-reason</a>)</span>
 
           
+          
+          </li>
+          
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
           
           </li>
           
@@ -2374,6 +1606,36 @@ A <a href="#seto/payload" class="type">seto/payload</a> with this type is sent t
           
           </li>
           
+          <li>
+          <span class="name">maq</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">tif</span>
+          <span>(<a href="#seto/time-in-force-type" class="type">seto/time-in-force-type</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2387,7 +1649,10 @@ You'll most probably be calling this more than anything else in this API. In res
 To prevent your application from accidently creating more orders than it really wanted to you should always locally associate your orders within your application with the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" class="type">eto/payload</a> you send to Smarkets for the current <a href="#eto/session" class="type">session</a>.
 </p>
 <p>
-<em>If the <a href="#eto/seq" class="type">seq</a> for the <a href="#eto/payload" class="type">eto/payload</a> sent along with the <a href="#seto/payload" class="type">seto/payload</a> with type <span class="type">order-create</span> has a different outgoing <a href="#eto/seq" class="type">seq</a> number then <strong>it will result in a new order being created</strong>.</em>
+<strong>quantity is *not* stake</strong> - quantity is the sum of both sides of the trade in minor units * 100. For example, a buy order of £10 stake at 25% would have quantity of 400000. Which is (1000[minor-units] / 0.25[price]) * 100. The sell trade to fully match this at the same price is exactly the same price and quantity, but with the side field set to buy.
+</p>
+<p>
+<strong>reference</strong> is an unsigned 64bit integer that can optionally be set by the client. This reference will be returned to the client in <a href="#seto/order-accepted" class="type">order-accepted</a>, <a href="#seto/order-rejected" class="type">order-rejected</a>, or <a href="#seto/order-invalid" class="type">order-invalid</a>.
 </p>
 </div>
         
@@ -2416,6 +1681,71 @@ To prevent your application from accidently creating more orders than it really 
           </li>
           
         </ul>
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="seto/order-execute-voided">
+          <span class="name">seto/order-execute-voided</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">order</span>
+          <span>(<a href="#seto/order" class="type">seto/order</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">price</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity-type</span>
+          <span>(<a href="#seto/quantity-type" class="type">seto/quantity-type</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">quantity</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+        </ul>
+        
+
         
 
         
@@ -2468,6 +1798,16 @@ To prevent your application from accidently creating more orders than it really 
           
           </li>
           
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2512,6 +1852,16 @@ The <a href="#seto/price" class="type">price</a> here may differ from that of th
           <span>(<a href="#seto/order-invalid-reason" class="type">seto/order-invalid-reason</a>)</span>
 
           
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
           
           </li>
           
@@ -2595,6 +1945,26 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
           
           </li>
           
+          <li>
+          <span class="name">account-sequence</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">reference</span>
+          <span>(<span class="type">uint64</span>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -2652,6 +2022,31 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
           
           <li>
           <span class="name">crossed-self</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-not-found</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">service-temporarily-unavailable</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">contract-not-found</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">account-suspended</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">capacity-reached</span>
           
           </li>
           
@@ -2793,16 +2188,6 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
           </li>
           
           <li>
-          <span class="name">market-quotes-request</span>
-          <span>(<a href="#seto/market-quotes-request" class="type">seto/market-quotes-request</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
           <span class="name">market-quotes</span>
           <span>(<a href="#seto/market-quotes" class="type">seto/market-quotes</a>)</span>
 
@@ -2823,38 +2208,28 @@ The <a href="#eto/seq" class="type">seq</a> here refers to the <a href="#eto/seq
           </li>
           
           <li>
-          <span class="name">events-request</span>
-          <span>(<a href="#seto/events-request" class="type">seto/events-request</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">http-found</span>
-          <span>(<a href="#seto/http-found" class="type">seto/http-found</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">invalid-request</span>
-          <span>(<a href="#seto/invalid-request" class="type">seto/invalid-request</a>)</span>
-
-          
-          
-          <span class="optional">[optional]</span>
-          
-          </li>
-          
-          <li>
           <span class="name">order-cancel-rejected</span>
           <span>(<a href="#seto/order-cancel-rejected" class="type">seto/order-cancel-rejected</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-execute-voided</span>
+          <span>(<a href="#seto/order-execute-voided" class="type">seto/order-execute-voided</a>)</span>
+
+          
+          
+          <span class="optional">[optional]</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-state</span>
+          <span>(<a href="#seto/market-state" class="type">seto/market-state</a>)</span>
 
           
           
@@ -2948,11 +2323,6 @@ This is the type <a href="#encode">encoded</a>, <a href="#framing">framed</a>, a
           </li>
           
           <li>
-          <span class="name">market-quotes-request</span>
-          
-          </li>
-          
-          <li>
           <span class="name">market-quotes</span>
           
           </li>
@@ -2963,22 +2333,17 @@ This is the type <a href="#encode">encoded</a>, <a href="#framing">framed</a>, a
           </li>
           
           <li>
-          <span class="name">events-request</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">http-found</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">invalid-request</span>
-          
-          </li>
-          
-          <li>
           <span class="name">order-cancel-rejected</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">order-execute-voided</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">market-state</span>
           
           </li>
           
@@ -3149,52 +2514,8 @@ Represents the sum of all <a href="#seto/quantity" class="type">quantity</a> cur
       
       
       <div class="def">
-        <h3 id="seto/sport-by-date">
-          <span class="name">seto/sport-by-date</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">type</span>
-          <span>(<a href="#seto/sport-by-date-type" class="type">seto/sport-by-date-type</a>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">date</span>
-          <span>(<a href="#seto/date" class="type">seto/date</a>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
-        
-
-        
-        <div class="description"><p>
-Specify this as the <a href="#seto/events-request" class="type">events-request</a> and you'll get sent back a <a href="#seto/http-found" class="type">http-found</a> for the <a href="#seto/events" class="type">events</a> with a specific <a href="#seto/date" class="type">date</a> and <a href="#seto/sport-by-date-type" class="type">sport-by-date-type</a>.
-</p>
-</div>
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/sport-by-date-type">
-          <span class="name">seto/sport-by-date-type</span>
+        <h3 id="seto/time-in-force-type">
+          <span class="name">seto/time-in-force-type</span>
           <span class="piqi_type">enum</span>
           
         </h4>
@@ -3205,60 +2526,16 @@ Specify this as the <a href="#seto/events-request" class="type">events-request</
         <ul>
           
           <li>
-          <span class="name">football</span>
+          <span class="name">gtc</span>
           
           </li>
           
           <li>
-          <span class="name">horse-racing</span>
-          
-          </li>
-          
-          <li>
-          <span class="name">tennis</span>
+          <span class="name">ioc</span>
           
           </li>
           
         </ul>
-        
-
-        
-
-      </div>
-      
-      
-      
-      
-      
-      <div class="def">
-        <h3 id="seto/time">
-          <span class="name">seto/time</span>
-          <span class="piqi_type">record</span>
-          
-        </h4>
-
-        
-        <ul>
-          
-          <li>
-          <span class="name">hour</span>
-          <span>(<span class="type">uint32</span>)</span>
-
-          
-          
-          </li>
-          
-          <li>
-          <span class="name">minute</span>
-          <span>(<span class="type">uint32</span>)</span>
-
-          
-          
-          </li>
-          
-        </ul>
-        
-
         
 
         
@@ -3335,6 +2612,92 @@ Specify this as the <a href="#seto/events-request" class="type">events-request</
       </div>
       
       <div id="eto">
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/date">
+          <span class="name">eto/date</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">year</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">month</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">day</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/datetime">
+          <span class="name">eto/datetime</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">date</span>
+          <span>(<a href="#eto/date" class="type">eto/date</a>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">time</span>
+          <span>(<a href="#eto/time" class="type">eto/time</a>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
+        
+
+        
+
+        
+
+      </div>
+      
+      
       
       
       
@@ -3748,6 +3111,26 @@ If the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" cla
           
           </li>
           
+          <li>
+          <span class="name">unknown-session</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">unauthorised</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">service-temporarily-unavailable</span>
+          
+          </li>
+          
+          <li>
+          <span class="name">downtime</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -3909,6 +3292,11 @@ If the <a href="#eto/seq" class="type">seq</a> of the <a href="#eto/payload" cla
           
           </li>
           
+          <li>
+          <span class="name">throttle-exceeded</span>
+          
+          </li>
+          
         </ul>
         
 
@@ -4063,7 +3451,7 @@ When a connection is first made <a href="#eto/login" class="type">login</a> and 
 </table>
 
 <p>
-This simple example is basically a payload and an *ack* style response, but once this initial step has taken place many incoming and outgoing payload can be sent potentially without any payload based acknowledgement. Acknowledgement is done by comparing the incoming message's sequence with the expected incoming sequence. If a process in your application performing a state transition based on an incoming payload crashes then you want to maintain that you have <em>not</em> processed that sequence number. To do this the expected next incoming sequence number should not be incremented, and when the next payload is received it will be incorrect by 1 step. To handle these cases a payload with type <a href="#eto/replay" class="type">replay</a> is sent.
+This simple example is basically a payload and an *ack* style response, but once this initial step has taken place many incoming and outgoing payload can be sent potentially without any payload based acknowledgement. Acknowledgement is done by comparing the incoming message's sequence with the expected incoming sequence. If a process in your application performing a state transition based on an incoming payload crashes then you want to maintain that you have <em>not</em> processed that sequence number. To do this the expected next incoming sequence number should not be incremented, and when the next payload is received it will be increment by 1 step. To handle these cases a payload with type <a href="#eto/replay" class="type">replay</a> is sent.
 </p>
 
 <p>
@@ -4088,6 +3476,45 @@ This simple example is basically a payload and an *ack* style response, but once
           
         </h4>
 
+        
+
+        
+
+        
+
+      </div>
+      
+      
+      
+      
+      
+      <div class="def">
+        <h3 id="eto/time">
+          <span class="name">eto/time</span>
+          <span class="piqi_type">record</span>
+          
+        </h4>
+
+        
+        <ul>
+          
+          <li>
+          <span class="name">hour</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+          <li>
+          <span class="name">minute</span>
+          <span>(<span class="type">uint32</span>)</span>
+
+          
+          
+          </li>
+          
+        </ul>
         
 
         
